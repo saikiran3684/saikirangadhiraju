@@ -1,16 +1,95 @@
+/* General Styles */
 body {
-    font-family: Arial, sans-serif;
-    margin: 20px;
-    line-height: 1.6;
-    background-color: #f7f7f7;
-}
-header {
-    text-align: center;
-    margin-bottom: 30px;
-}
-h1 {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff);
     color: #333;
 }
+
+.container {
+    max-width: 900px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 50px 0 30px 0;
+}
+
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    font-size: 1.2rem;
+    color: #555;
+}
+
+/* Section */
 section {
+    background: #ffffffcc;
+    padding: 25px 30px;
     margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    opacity: 0; /* for animation */
+}
+
+/* Section Titles */
+section h2 {
+    color: #007bff;
+    margin-bottom: 15px;
+}
+
+/* Links */
+a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px);}
+    to { opacity: 1; transform: translateY(0);}
+}
+
+@keyframes slideInLeft {
+    from { opacity: 0; transform: translateX(-50px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+
+@keyframes slideInRight {
+    from { opacity: 0; transform: translateX(50px);}
+    to { opacity: 1; transform: translateX(0);}
+}
+
+/* Apply animations */
+.fade-in {
+    animation: fadeIn 1s forwards;
+}
+
+.fade-in.delay-1 {
+    animation-delay: 0.5s;
+}
+
+.fade-in.delay-2 {
+    animation-delay: 1s;
+}
+
+.slide-in-left {
+    animation: slideInLeft 1s forwards;
+}
+
+.slide-in-right {
+    animation: slideInRight 1s forwards;
+}
+
+/* Hover effect for sections */
+section:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
 }
