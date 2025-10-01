@@ -1,69 +1,86 @@
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
-    background: linear-gradient(120deg, #f5f7fa 0%, #d7e1ec 100%);
-    color: #333;
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', Arial, sans-serif;
+  background: linear-gradient(120deg, #34e89e 0%, #0f3443 100%);
+  color: #333;
 }
 nav {
-    background: #0A66C2;
-    padding: 8px 0;
-}
-nav ul {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    list-style: none;
-    margin: 0;
-    padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  background: linear-gradient(90deg,#ff00cc,#22c1c3);
+  padding: 18px 0;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  animation: navGlow 3s infinite alternate;
 }
 nav a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    padding: 8px 16px;
-    border-radius: 6px;
-    transition: background 0.3s;
+  text-decoration: none;
+  padding: 13px 32px;
+  background: #fd6e6a;
+  border-radius: 99px;
+  color: #fff;
+  font-weight: bold;
+  box-shadow: 0 0 24px #ff00cc70;
+  font-size: 1.12em;
+  transition: background 0.3s, transform 0.3s;
+  animation: pulse 1.2s infinite alternate;
 }
-nav a:hover, nav .active {
-    background: #084a99;
+nav a:hover { background: #ff00cc; transform: scale(1.13) rotate(-4deg);}
+header, footer {
+  text-align: center;
+  background: linear-gradient(90deg, #fff 70%, #22c1c3 100%);
+  padding: 40px 0 12px;
+  border-radius: 0 0 24px 24px;
+  animation: rainbowGlow 9s infinite alternate;
 }
-header, section, footer {
-    max-width: 800px;
-    margin: 40px auto;
-    background: #fff;
-    border-radius: 10px;
-    box-shadow: 0 6px 24px rgba(22,60,135,0.09);
-    padding: 28px 36px;
-    animation: fadeIn 1.2s ease;
+header h1 { font-size: 2.8em; color: #ff00cc; animation: bigBounce 2.7s infinite alternate;}
+header a { color: #0f3443; font-weight: bold; text-decoration: underline;}
+.header, .footer { animation: popnav 2s infinite alternate;}
+.card {
+  max-width: 770px;
+  margin: 36px auto 64px;
+  padding: 30px 44px;
+  border-radius: 18px;
+  background: linear-gradient(120deg, #fff7fd 90%, #fff0 100%);
+  box-shadow: 0 8px 44px 0 #34e89e44, 0 0 24px #ff00cc44;
+  animation: fadeCard 1.7s both;
 }
-header h1 {
-    margin-bottom: 7px;
-    font-size: 2.4em;
-    animation: slideInDown 0.9s;
+.card h2 {color: #22c1c3; margin-bottom: 18px; animation: shakeTitle 2s infinite alternate;}
+.card ul li {
+  font-size: 1.18em;
+  line-height: 1.6em;
+  margin-bottom: 8px;
+  transition: transform 0.35s;
 }
-header a {
-    color: #0A66C2;
-    text-decoration: underline;
+.card ul li:hover {
+  color: #fd6e6a;
+  font-weight: bold;
+  transform: scale(1.09) rotate(-5deg);
+  text-shadow: 0 0 7px #ff00cc88;
 }
-section h2 {
-    color: #0A66C2;
-    margin-top: 0;
+.rainbow { border: 4px solid; border-image: linear-gradient(90deg,#fd6e6a,#22c1c3,#ff00cc,#34e89e) 1; }
+.glow { box-shadow:0 0 32px 8px #fd6e6a44,0 0 24px #ff00cc33;animation: glowCard 1.7s infinite alternate;}
+.crazy {animation: crazyCard 2s infinite alternate;}
+.flip {animation: flipCard 2s infinite alternate;}
+.spin {animation: spinCard 3.5s infinite linear;}
+.pop {animation: popnav 2s infinite alternate;}
+@keyframes pulse { 60%{box-shadow:0 0 32px 8px #22c1c377;} }
+@keyframes bigBounce {to{transform:translateY(32px) scale(1.07);} }
+@keyframes shakeTitle {60%{transform:rotate(-4deg);}100%{transform:rotate(3deg);} }
+@keyframes fadeCard {0%{opacity:0;transform:scale(0.5);}100%{opacity:1;transform:none;} }
+@keyframes rainbowGlow {
+  0%{background:linear-gradient(90deg,#fff 70%, #22c1c3 100%);}
+  50%{background:linear-gradient(90deg, #22c1c3 0%, #ff00cc 100%);}
+  100%{background:linear-gradient(90deg,#ff00cc 70%, #fff 100%);}
 }
-footer {
-    text-align: center;
-    background: #e5e9ef;
-    font-size: 1em;
-}
-.fade-in {
-    opacity: 0;
-    animation: fadeIn 1.2s forwards;
-    animation-delay: 0.3s;
-}
-@keyframes fadeIn {
-    to { opacity: 1; }
-}
-@keyframes slideInDown {
-    from { transform: translateY(-60px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
+@keyframes glowCard {to{box-shadow:0 0 68px 24px #ff00cc77,0 0 32px #fd6e6a77;}}
+@keyframes popnav {to{transform:scale(1.08);}}
+@keyframes crazyCard {to{transform:translateY(-16px) scale(1.06) rotateY(10deg);}}
+@keyframes flipCard {to{transform:rotateY(360deg);}}
+@keyframes spinCard {100%{transform:rotateZ(360deg);}}
+@media (max-width:600px){
+  .card, header, footer {padding:14px 8px;}
+  nav a {font-size:0.93em; padding:8px 10px;}
 }
