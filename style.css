@@ -1,64 +1,69 @@
 body {
     font-family: 'Segoe UI', Arial, sans-serif;
+    background: linear-gradient(120deg, #f5f7fa 0%, #d7e1ec 100%);
+    color: #333;
     margin: 0;
     padding: 0;
-    background: #f7f9fa;
-    color: #222;
 }
-header {
-    background-color: #213556;
-    color: white;
-    padding: 20px 0 16px 0;
-    text-align: center;
+nav {
+    background: #0A66C2;
+    padding: 8px 0;
+}
+nav ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+nav a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 6px;
+    transition: background 0.3s;
+}
+nav a:hover, nav .active {
+    background: #084a99;
+}
+header, section, footer {
+    max-width: 800px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 6px 24px rgba(22,60,135,0.09);
+    padding: 28px 36px;
+    animation: fadeIn 1.2s ease;
 }
 header h1 {
-    margin: 0;
-    font-size: 2.2em;
+    margin-bottom: 7px;
+    font-size: 2.4em;
+    animation: slideInDown 0.9s;
 }
-header address a {
-    color: #fafafa;
+header a {
+    color: #0A66C2;
     text-decoration: underline;
-    margin: 0 6px;
 }
-main {
-    max-width: 800px;
-    background: white;
-    margin: 32px auto;
-    padding: 30px 25px 35px 25px;
-    border-radius: 8px;
-    box-shadow: 0 4px 18px rgba(33, 53, 86, 0.10);
-}
-h2 {
-    color: #1f3572;
-    margin-top: 32px;
-    border-bottom: 1px solid #ececec;
-    padding-bottom: 4px;
-}
-h3 {
-    margin: 20px 0 8px 0;
-    color: #314a72;
-}
-ul {
-    margin-top: 3px;
-    margin-bottom: 20px;
-    margin-left: 24px;
+section h2 {
+    color: #0A66C2;
+    margin-top: 0;
 }
 footer {
     text-align: center;
-    padding: 17px 0;
-    background-color: #213556;
-    color: #fff;
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    left: 0;
+    background: #e5e9ef;
+    font-size: 1em;
 }
-@media (max-width: 700px) {
-    main {
-        max-width: 99vw;
-        padding: 14px 6vw 18px 6vw;
-    }
-    footer {
-        font-size: 15px;
-    }
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.2s forwards;
+    animation-delay: 0.3s;
+}
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+@keyframes slideInDown {
+    from { transform: translateY(-60px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
 }
